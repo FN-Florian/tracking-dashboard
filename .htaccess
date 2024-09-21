@@ -1,0 +1,4 @@
+RewriteEngine On
+RewriteRule ^([^/]+)\.html$ index.php?page=$1 [QSA,L]
+RewriteRule ^([^/]+)/([^/]+)\.html$ index.php?page=$2&id=$1 [QSA,L]
+RewriteRule ^([^/]+)/([^/]+)/([^/]+)\.html$ index.php?page=$3&id=$2&subpage=$1 [QSA,L]

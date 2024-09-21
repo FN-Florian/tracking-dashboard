@@ -1,0 +1,1 @@
+* * * * * curl -s "$PAGE_URL/parcel_updates.php" >> /var/log/cron_php.log 2>&1
