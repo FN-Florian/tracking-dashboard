@@ -76,7 +76,7 @@ if($parcel_id > 0)
 
     if($_POST['save_parcel_edit'])
     {
-        $name = preg_replace("/[^a-zA-Z0-9 ]/", "", $_POST['name']);
+        $name = preg_replace("/[^a-zA-Z0-9öäüß_- ]/", "", $_POST['name']);
         $carrier = preg_replace("/[^a-zA-Z]/", "", $_POST['carrier']);
 
         // Custom Fields save (Key: custom_field_1, custom_field_2, custom_field_3, ...)
@@ -407,14 +407,16 @@ if($parcel_id > 0)
 }
 else
 {
-    // Neues Paket anlegen
+    // Add new parcel
 
     if($_POST['submit'])
     {
         $carrier        = preg_replace("/[^a-zA-Z]/", "", $_POST['carrier']);
         $trackingnumber = preg_replace("/[^a-zA-Z0-9]/", "", $_POST['trackingnumber']);
-        $name           = preg_replace("/[^a-zA-Z0-9 ]/", "", $_POST['name']);
+        $name           = preg_replace("/[^a-zA-Z0-9äüöß-_ ]/", "", $_POST['name']);
         
+        $name = $mysqli->real_escape_string($name);
+
 
         $parcel_id = $carrierClass->AddParcel($carrier, $trackingnumber, $name);
 
