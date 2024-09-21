@@ -9,7 +9,8 @@ class mailClass{
         if($E_SMTP_Provider == "sendgrid")
         {
             $result = $this->SendWithSendgrid($to, $subject, $message);
-            var_dump($result);
+
+            return true;
         }
         else
         {
