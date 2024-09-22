@@ -77,7 +77,7 @@ if($count == 0)
         
         if($add_to_group > 0)
         {
-            $sql = "INSERT INTO parcel_in_group (parcelID, groupID) values ('".$parcelID."', '".$add_to_group."')";
+            $sql = "INSERT INTO parcel_in_group (parcel_ID, group_ID) values ('".$parcelID."', '".$add_to_group."')";
             $mysqli->query($sql);
         }
 
