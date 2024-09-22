@@ -23,6 +23,17 @@ else
 {
     $add_to_group = 0;
 }
+if(isset($_GET['name']))
+{
+    $name = $_GET['name'];
+    $name = preg_replace("/[^a-zA-Z0-9äöü ]/", "", $name);
+    $name = $mysqli->real_escape_string($name);
+}
+else
+{
+    $name = "";
+}
+
 if(empty($trackingnumber)) {
     // Handle empty tracking number
     // For example, you can display an error message or redirect to an error page
@@ -60,7 +71,7 @@ $count = $result->num_rows;
 if($count == 0) 
 {
     try {
-        $parcelID = $carrierClass->AddParcel($carrier, $trackingnumber);
+        $parcelID = $carrierClass->AddParcel($carrier, $trackingnumber, $name);
         $TrackingData = $carrierClass->GetTracking($trackingnumber);
         $carrierClass->WriteTrackingUpdate($trackingnumber, $TrackingData);
         
