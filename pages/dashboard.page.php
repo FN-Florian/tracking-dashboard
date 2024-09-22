@@ -133,7 +133,12 @@ $sql .= " ORDER BY last_tracking_update DESC";
                         // CustomFields with on_dashboard = 1
                         foreach($CustomFieldResult as $CustomFieldRow)
                         {
-                            echo "<td>".$CustomFieldRow['value']."</td>";
+                            echo "<td>";
+                            if($CustomFieldRow['parcel_id'] == $row['parcel_id'])
+                            {
+                                echo $CustomFieldRow['value'];
+                            }
+                            echo "</td>";
                         }
 
                     }
