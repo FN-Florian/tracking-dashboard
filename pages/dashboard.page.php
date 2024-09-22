@@ -49,6 +49,7 @@ $sql .= " ORDER BY last_tracking_update DESC";
                     value
                     FROM View_parcels_custom_fields 
                     WHERE on_dashboard = 1 AND groupID = '".$G_id."'
+                    GROUP BY field_id
                     ";
 
                     $CustomFieldResult = $mysqli->query($CustomFieldSql);
