@@ -26,7 +26,7 @@ else
 if(isset($_GET['name']))
 {
     $name = $_GET['name'];
-    $name = preg_replace("/[^a-zA-Z0-9äöü ]/", "", $name);
+    $name = preg_replace("/[^a-zA-Z0-9äöü- ]/", "", $name);
     $name = $mysqli->real_escape_string($name);
 }
 else
