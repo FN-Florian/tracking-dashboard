@@ -420,7 +420,6 @@ else
 
         $parcel_id = $carrierClass->AddParcel($carrier, $trackingnumber, $name);
 
-        var_dump($parcel_id);
 
         if($carrier == "DHL" || $carrier == "UPS")
         {
