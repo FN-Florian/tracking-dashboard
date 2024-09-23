@@ -76,11 +76,15 @@ if($parcel_id > 0)
 
     if($_POST['save_parcel_edit'])
     {
+        echo "<br>debug";
+        var_dump($_POST['name']);
         $name = preg_replace("/[^a-zA-Z0-9öäüß_- ]/", "", $_POST['name']);
         $carrier = preg_replace("/[^a-zA-Z]/", "", $_POST['carrier']);
 
         // Custom Fields save (Key: custom_field_1, custom_field_2, custom_field_3, ...)
 
+        echo "<br>debug";
+        var_dump($name);
         foreach($_POST as $key => $value)
         {
             if(strpos($key, "custom_field_") !== false)
@@ -117,12 +121,16 @@ if($parcel_id > 0)
                 $mysqli->query($sql);
             }
         }
+        echo "<br>debug";
+        var_dump($name);
 
         $sql = "
         UPDATE parcels
         SET name = '".$name."'
         WHERE parcel_id = ".$parcel_id."
         ";
+        echo "<br>debug";
+        var_dump($name);
 
         $mysqli->query($sql);
 
