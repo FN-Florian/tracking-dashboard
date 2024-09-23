@@ -43,6 +43,7 @@ $sql .= " ORDER BY last_tracking_update DESC";
                     // CustomFields with on_dashboard = 1
                     $CustomFieldSql = "
                     SELECT 
+                    parcel_id,
                     field_id,
                     field_name,
                     field_type,
@@ -130,14 +131,20 @@ $sql .= " ORDER BY last_tracking_update DESC";
 
                     if($G_id > 0)
                     {
-                        // CustomFields with on_dashboard = 1
+                        $sql = "SELECT * 
+                        FROM 
+                        View_parcels_custom_fields 
+                        WHERE 
+                        parcel_id = ".$row['parcel_id']." 
+                        AND groupID = ".$G_id." 
+                        AND on_dashboard = 1";
+                        $CustomFieldResult = $mysqli->query($sql);
+
+
                         foreach($CustomFieldResult as $CustomFieldRow)
                         {
                             echo "<td>";
-                            if($CustomFieldRow['parcel_id'] == $row['parcel_id'])
-                            {
-                                echo $CustomFieldRow['value'];
-                            }
+                            echo $CustomFieldRow['value'];
                             echo "</td>";
                         }
 
