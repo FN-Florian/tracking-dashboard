@@ -78,7 +78,7 @@ if($parcel_id > 0)
     {
         echo "<br>debug";
         var_dump($_POST['name']);
-        $name = preg_replace("/[^a-zA-Z0-9öäüß_- ]/", "", $_POST['name']);
+        $name = preg_replace("/[^a-zA-Z0-9öäüß\_\- ]/", "", $_POST['name']);
         $carrier = preg_replace("/[^a-zA-Z]/", "", $_POST['carrier']);
 
         // Custom Fields save (Key: custom_field_1, custom_field_2, custom_field_3, ...)
