@@ -126,6 +126,10 @@ class CarrierClass{
                 $dbField['status'] = "In Zustellung (Heute)";
                 $dbField['status_categorie'] = "in_progress";
                 break;
+            case "057":
+                $dbField['status'] = "Zugestellt (Shop)";
+                $dbField['status_categorie'] = "done";
+                break;
             case "087":
                 $dbField['status'] = "Transport";
                 $dbField['status_categorie'] = "in_progress";
