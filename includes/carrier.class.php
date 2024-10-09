@@ -182,7 +182,7 @@ class CarrierClass{
         $curl = curl_init();
 
         curl_setopt_array($curl, [
-            CURLOPT_URL => "https://api-eu.dhl.com/track/shipments?trackingNumber=".$trackingnumber,
+            CURLOPT_URL => "https://api-eu.dhl.com/track/shipments?language=de&trackingNumber=".$trackingnumber,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => "",
             CURLOPT_MAXREDIRS => 10,
